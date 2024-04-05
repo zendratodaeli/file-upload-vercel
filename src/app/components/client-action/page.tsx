@@ -15,10 +15,9 @@ const UploadReportForm = () => {
     const formData = new FormData();
     formData.append("file", file as Blob);
     
-
     try {
       const response = await uploadFile(formData);
-      if (response.status == 200) {
+      if (response && response.status == 200) {
         console.log("Upload successful");
       } else {
         console.error("Upload failed", response); 
@@ -28,6 +27,8 @@ const UploadReportForm = () => {
       console.error("Error uploading file:", error);
       alert('An error occurred while uploading the report.');
     }
+    
+
   };
 
   const styles = {
