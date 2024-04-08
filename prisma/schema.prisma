@@ -79,6 +79,7 @@ model UploadedFileData {
 
   model RawMaterialSustainabilityData {
   id  String @id @default(cuid())
+  title                            String @default("Raw Material Sustainability")
   ds                               String
   tenantId                         String
   sustainable_material_usage       Float

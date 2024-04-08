@@ -41,7 +41,7 @@ const GeneratePdf: React.FC<GeneratePdfProps> = ({ jsonData }) => {
   };
 
   return (
-    <div>
+    <div className='mb-5'>
       <button onClick={generate} className='btn bg-teal-800 text-white rounded-md'>Generate PDF</button>
     </div>
   );

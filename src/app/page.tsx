@@ -1,17 +1,16 @@
-import { getCurrentUser } from '@/lib/session'
+
 import { list } from '@vercel/blob';
 import Link from 'next/link'
 import prisma from '@/lib/db'
 import GeneratePdf from '@/components/GeneratePdf';
 
 async function Page() {
-  const user = await getCurrentUser();
   const response = await list();
   const responseInputManual = await prisma.rawMaterialSustainabilityData.findMany()  
   
   return (
     <div className="space-x-2">
-      Hello
+      <p>Hello</p> 
       <Link href="/components/client-action">Upload</Link>
       <Link href="/platform/raw-material">Entry Data</Link>
       <Link href="/api/auth/signin" className="text-black hover:underline">
@@ -21,7 +20,7 @@ async function Page() {
       <div className="m-5">
         <table>
           <thead>
-            <tr>
+            <tr className='text-center'>
               <th>Date</th>
               <th>Tenant ID</th>
               <th>Sustainable Material Usage (%)</th>
@@ -32,7 +31,7 @@ async function Page() {
           </thead>
           <tbody>
             {responseInputManual.map((data, index) => (
-              <tr key={index}> {/* Use index as a key for simplicity, but prefer unique ids if available */}
+              <tr key={index} className='text-center'> {/* Use index as a key for simplicity, but prefer unique ids if available */}
                 <td>{index + 1}</td>
                 <td>{data.ds}</td>
                 <td>{data.tenantId}</td>
